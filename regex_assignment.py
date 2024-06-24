@@ -10,7 +10,7 @@ names = ["Abraham Lincoln", "Andrew P Garfield", "peter pan",
 def validate_names(names):
     valid_names = []
     invalid_names = []
-    pattern = re.compile(r"[A-Za-z]{1}\s[A-Za-z]{1}")
+    pattern = re.compile(r"[A-z]{1}+(?:\s[A-Z])")
     
     for name in names:
         if re.search(pattern, name):
@@ -18,11 +18,14 @@ def validate_names(names):
             
         else:
             invalid_names.append(name)
+
     
     return valid_names, invalid_names
 
 valid_names, invalid_names = validate_names(names)
+
 print()
 print("Here are the valid names:   ", valid_names)
 print()
-print("Here are the invalid names:   ", invalid_names)
+print("Here are the invalid names: ", invalid_names)
+
